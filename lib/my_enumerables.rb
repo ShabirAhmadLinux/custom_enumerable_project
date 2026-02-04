@@ -52,7 +52,6 @@ module Enumerable
   end
 
   def my_inject(initial = :not_given)
-    return to_enum(:my_inject) unless block_given?
      new_arr = (initial.eql? :not_given)? self : [initial] + self 
      accumulator = new_arr[0] 
      new_arr[1..].my_each do |elem|
@@ -60,7 +59,7 @@ module Enumerable
      end
      accumulator
   end
-  
+
 end
 
 # You will first have to define my_each
